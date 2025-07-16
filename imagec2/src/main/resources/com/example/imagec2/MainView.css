@@ -1,0 +1,207 @@
+.root {
+    -fx-background-color: #1e1e1e;
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* Style for ToolBar */
+.tool-bar {
+    -fx-background-color: transparent;
+    -fx-padding: 10;
+}
+
+/* Enhanced Button Styles */
+.button {
+    -fx-background-color: linear-gradient(#2E8BC0, #145A96);
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20;
+    -fx-background-radius: 25;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2);
+    -fx-cursor: hand;
+    -fx-transition: background-color 0.3s, -fx-scale-x 0.3s, -fx-scale-y 0.3s;
+}
+
+/* Specific Styles for Exit Button */
+.exit-button {
+    -fx-background-color: linear-gradient(#D32F2F, #B71C1C);
+}
+
+.exit-button:hover {
+    -fx-background-color: linear-gradient(#E57373, #F44336);
+}
+
+.exit-button:pressed {
+    -fx-background-color: linear-gradient(#B71C1C, #D32F2F);
+}
+
+/* Specific Styles for Toggle Fullscreen Button */
+.toggle-fullscreen-button {
+    -fx-background-color: linear-gradient(#43A047, #388E3C);
+}
+
+.toggle-fullscreen-button:hover {
+    -fx-background-color: linear-gradient(#66BB6A, #2E7D32);
+}
+
+.toggle-fullscreen-button:pressed {
+    -fx-background-color: linear-gradient(#2E7D32, #43A047);
+}
+
+/* Style for ToolBar Buttons */
+.tool-bar .button {
+    -fx-background-radius: 20;
+    -fx-padding: 8 16;
+}
+
+/* Removed styles for Button Graphics */
+ 
+
+.button:hover {
+    -fx-background-color: linear-gradient(#3FA9F5, #1C6EA4);
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.button:pressed {
+    -fx-background-color: linear-gradient(#1C6EA4, #145A96);
+    -fx-scale-x: 0.95;
+    -fx-scale-y: 0.95;
+}
+
+#mylistview {
+    -fx-background-color: #2d2d2d;
+    -fx-text-fill: white;
+    -fx-background-radius: 5;
+    -fx-padding: 5;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 3);
+}
+
+#mylistview .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-padding: 5 10;
+}
+
+#mylistview .list-cell:selected {
+    -fx-background-color: #0d47a1;
+}
+
+#myimageview {
+    -fx-background-color: #2d2d2d;
+    -fx-background-radius: 5;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 3);
+    -fx-padding: 10;
+}
+
+.table-view {
+    -fx-background-color: #2d2d2d;
+    -fx-text-fill: white;
+    -fx-background-radius: 5;
+}
+
+.table-view .column-header {
+    -fx-background-color: #0d47a1;
+    -fx-text-fill: white;
+}
+
+.table-view .table-cell {
+    -fx-text-fill: white;
+}
+
+.table-row-cell {
+    -fx-background-color: #2d2d2d;
+    -fx-text-fill: white;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #0d47a1;
+}
+
+.progress-bar {
+    -fx-accent: #0d47a1;
+}
+
+.progress-bar .track {
+    -fx-background-color: #2d2d2d;
+}
+
+.label {
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+}
+
+#labelresult {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #64b5f6;
+}
+
+#classifiedCountLabel {
+    -fx-text-fill: #64b5f6;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+#totalClassificationTimeLabel {
+    -fx-text-fill: #64b5f6;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.table-cell {
+    -fx-padding: 5;
+    -fx-wrap-text: true;
+    -fx-alignment: top-left;
+}
+
+.table-row-cell {
+    -fx-min-height: 40px;
+    -fx-pref-height: -1;
+}
+
+.bar-chart {
+    -fx-background-color: #2d2d2d;
+    -fx-legend-visible: true;
+    -fx-title-visible: true;
+    -fx-outline-visible: false;
+}
+
+.pie-chart {
+    -fx-background-color: #2d2d2d;
+    -fx-legend-visible: true;
+    -fx-title-visible: true;
+    -fx-pie-label-visible: true;
+}
+
+/* Style for ScrollPane */
+.scroll-pane {
+    -fx-background: #1e1e1e;
+}
+
+/* Style for VBox inside ScrollPane */
+.vbox {
+    -fx-spacing: 20;
+}
+
+/* Style for HBox containers */
+.hbox {
+    -fx-spacing: 20;
+}
+
+/* Ensure charts and table view have consistent styling */
+.confidenceBarChart, .classificationPieChart {
+    -fx-font-size: 12px;
+}
+
+/* Additional styles for smooth appearance */
+.section-header {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.result-label {
+    -fx-text-fill: #64b5f6;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}

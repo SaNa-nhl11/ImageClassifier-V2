@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane fitToHeight="true" fitToWidth="true" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.imagec2.ClassificationController">
+    <content>
+        <!-- Main VBox with Drag-and-Drop Handlers -->
+        <VBox onDragDropped="#handleDragDropped" onDragOver="#handleDragOver" spacing="20">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20" />
+            </padding>
+            <!-- Top Section: Control Buttons within a ToolBar -->
+            <ToolBar styleClass="tool-bar">
+                <Button onAction="#handleloadimages" styleClass="action-button" text="Load Images">
+                    <!-- Removed graphic/ImageView block -->
+                </Button>
+                <Button onAction="#handleAbout" styleClass="action-button" text="About">
+                    <!-- Removed graphic/ImageView block -->
+                </Button>
+                <!-- New Toggle Fullscreen Button -->
+                <Button onAction="#handleToggleFullscreen" styleClass="toggle-fullscreen-button" text="Toggle Fullscreen">
+                    <!-- Removed graphic/ImageView block -->
+                </Button>
+                <Button alignment="TOP_RIGHT" onAction="#handleExit" styleClass="exit-button" text="Exit">
+                    <!-- Removed graphic/ImageView block -->
+                </Button>
+            </ToolBar>
+            
+            <!-- Main Content Area -->
+            <HBox spacing="20">
+                
+                <!-- Left Pane: Selected Images List -->
+                <VBox prefWidth="300" spacing="10">
+                    <Label styleClass="section-header" text="Selected Images" />
+                    <ListView fx:id="mylistview" prefHeight="600" prefWidth="300" />
+               <ButtonBar prefHeight="40.0" prefWidth="200.0">
+                 <buttons>
+                         <Button onAction="#handledeleteAll" styleClass="action-button" text="Clear All">
+                    <!-- Removed graphic/ImageView block -->
+                </Button>
+                         <Button onAction="#handleClassifyImages" prefHeight="25.0" prefWidth="157.0" styleClass="action-button" text="Classify Selected">
+                    <!-- Removed graphic/ImageView block -->
+                </Button>
+                 </buttons>
+               </ButtonBar>
+                </VBox>
+                
+                <!-- Center Pane: Image Preview and Classification Status -->
+                <VBox alignment="CENTER" spacing="20" VBox.vgrow="ALWAYS">
+                    <Label styleClass="section-header" text="Image Preview" />
+                    <ImageView fx:id="myimageview" fitHeight="500" fitWidth="600" preserveRatio="true" />
+                    <Label fx:id="labelresult" styleClass="result-label" />
+                    <ProgressBar fx:id="progressBar" prefWidth="400" progress="0.0" />
+                </VBox>
+                
+                <!-- Right Pane: Classification Results Table -->
+                <VBox prefWidth="500" spacing="10">
+                    <Label styleClass="section-header" text="Classification Results" />
+                    <TableView fx:id="resultsTable" prefHeight="600" prefWidth="500">
+                        <columns>
+                            <TableColumn fx:id="imageNameColumn" prefWidth="200" text="Image">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="imageName" />
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn fx:id="resultColumn" prefWidth="300" text="Classification">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="result" />
+                                </cellValueFactory>
+                            </TableColumn>
+                        </columns>
+                        <columnResizePolicy>
+                            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                        </columnResizePolicy>
+                    </TableView>
+                </VBox>
+            </HBox>
+            
+            <!-- Dashboard Section: Real-Time Statistics and Charts -->
+            <VBox prefHeight="468.0" prefWidth="1440.0" spacing="20">
+                
+                <!-- Statistics Row -->
+                <HBox alignment="CENTER_LEFT" spacing="20">
+                    <Label text="Images Classified:" />
+                    <Label fx:id="classifiedCountLabel" text="0" />
+                    <Label text="Total Classification Time (s):" />
+                    <Label fx:id="totalClassificationTimeLabel" text="0.0" />
+                </HBox>
+                
+                <!-- Charts Row -->
+                <HBox spacing="20">
+                    <BarChart fx:id="confidenceBarChart" onMouseClicked="#handleConfidenceChartClick" prefHeight="300" prefWidth="646.0" title="Confidence Scores">
+                        <xAxis>
+                            <CategoryAxis label="Image" />
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis label="Confidence" />
+                        </yAxis>
+                    </BarChart>
+                    <PieChart fx:id="classificationPieChart" prefHeight="300" prefWidth="568.0" title="Classification Distribution" />
+                </HBox>
+            </VBox>
+            
+            <!-- Enhanced Progress Tracker -->
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Label text="Processed Images:" />
+                <Label fx:id="processedImagesLabel" text="0" />
+                <Label text="Total Images:" />
+                <Label fx:id="totalImagesLabel" text="0" />
+                <Label text="Estimated Time Remaining:" />
+                <Label fx:id="estimatedTimeLabel" text="0.0s" />
+            </HBox>
+        </VBox>
+    </content>
+</ScrollPane>
